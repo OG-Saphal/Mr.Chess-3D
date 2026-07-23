@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Chess 3D – Strategy Chess Game | GDD</title>
+<link rel="stylesheet" href="projectStyle.css">
+</head>
+
+<body>
+<div class="page">
+
+
+<canvas id="particles"></canvas>
+
+<div class="container">
+
+
+<!-- HERO -->
+<header class="hero">
+    
+         <img src="mr.chess3d/chess1.png" alt="" class="hero-video">
+
+    <div class="hero-overlay">
+        <h1>Mr. Chess 3D</h1>
+        <p>Authentic chess, modern multiplayer, and experimental modes in a premium 3D environment.</p>
+
+        
+
+        <div class="hero-tags">
+            <span class="status-tag status-pro" >Unfinished</span>
+            <span class="status-tag status-p" >Apr 2021 - Feb 2023</span>
+        </div>
+    </div>
+</header>
+<!-- 1. BASIC INFO -->
+<section id="info">
+<h2>1. Project Overview</h2>
+<div class="section-container">
+<div class="section-text">
+        <p>
+        Mr. Chess 3D is a Strategy/Board game that combines authentic chess rules with modern multiplayer, social features, and experimental gameplay modes.
+        </p>
+</div>
+</div>
+<div class="section-carousel carousel" data-carousel>
+            <div class="carousel-track-container" style="width:auto; height:auto" >
+                <div class="carousel-track">
+                    <img src="mr.chess3d/chess1.png" alt="">
+                    <img src="mr.chess3d/chess0.png" alt="">
+                    <img src="mr.chess3d/chess2.png" alt="">
+                    <img src="mr.chess3d/chess3.png" alt="">
+                    <img src="mr.chess3d/chess4.png" alt="">
+                    <img src="mr.chess3d/chess5.png" alt="">
+                    <img src="mr.chess3d/chess6.png" alt="">
+                    <img src="mr.chess3d/chess7.png" alt="">
+                    <img src="mr.chess3d/chess8.png" alt="">
+                    <img src="mr.chess3d/chess9.png" alt="">
+                    <img src="mr.chess3d/chess10.png" alt="">
+                    <img src="mr.chess3d/chess11.png" alt="">
+                </div>
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+            <div class="carousel-dots"></div>
+            </div>
+        </div>
+</section>
+
+<section id="history">
+<!--<h2>2. Project History</h2>
+<div class="section-container">
+<div class="section-text">
+        <p>
+I started this project when I joined grade 11. It was my passion and my biggest dream. But just one month before my 12th-grade finals, everything fell apart: the project crashed.
+I was met with a wall of 999+ errors. Everything the scripts, shaders, textures, and materials was corrupted. Two years of hard work turned into a digital graveyard overnight. The loss was so devastating that I walked away from game development entirely.
+ It took me two years to overcome the frustration .After this year's Dashain, I finally decided to face the crash. By dedicating a small amount of time every day, I began the slow process of rebuilding.As of now, I have almost recovered it
+.Even though there is still a long way to go, I am happy. I’ve recovered almost everything I once thought was lost and impossible to fix
+
+<br><br>
+Through this, I learned a vital lesson: We often make our problems much bigger in our minds than they are in reality. Instead of running away, wasting time in regret, and being depressed. we should accept the bitter truth and be ready to face it.
+        </p>
+
+</div>
+
+</div>
+</section>-->
+
+
+
+<!-- 3. CORE DESIGN PILLARS -->
+<section id="pillars">
+<h2>2. Core Design Pillars</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Authentic Chess Rules</h3>
+<ul>
+<li>Fully compliant with standard chess mechanics</li>
+<li>Accurate move validation</li>
+<li>Check, checkmate, and special rules implemented</li>
+</ul>
+
+<h3>Modern Multiplayer & Social Play</h3>
+<ul>
+<li>Real-time online matches</li>
+<li>Integrated voice, chat, and friends system</li>
+</ul>
+
+<h3>Experimental Gameplay Without Breaking Chess</h3>
+<ul>
+<li>Blind Chess mode introduces innovation</li>
+<li>Core chess logic remains intact</li>
+</ul>
+
+
+
+<h3>Premium 3D Presentation</h3>
+<ul>
+<li>Realistic visuals</li>
+<li>Smooth camera and animations</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 4. GAMEPLAY -->
+<section id="gameplay">
+<h2>3. Gameplay Overview</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Primary Objective</h3>
+<p>Defeat the opponent by delivering checkmate under standard chess rules.</p>
+
+<h3>Win Conditions</h3>
+<ul>
+<li>Checkmate</li>
+<li>Opponent resignation</li>
+<li>Opponent disconnection (online)</li>
+</ul>
+
+<h3>Loss Conditions</h3>
+<ul>
+<li>Checkmate</li>
+<li>Player resignation</li>
+<li>Disconnection or timeout</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 5. GAME MODES -->
+<section id="modes">
+<h2>4. Game Modes</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Offline Local Multiplayer</h3>
+<ul>
+<li>Two players on the same device</li>
+<li>Turn-based gameplay</li>
+<li>Ideal for casual and learning-focused sessions</li>
+</ul>
+
+<h3>Online Multiplayer (Photon PUN2)</h3>
+<p><strong>Match Type:</strong></p>
+<ul>
+<li>1v1 real-time chess</li>
+<li>No observers</li>
+</ul>
+
+<p><strong>Lobby Features:</strong></p>
+<ul>
+<li>Create / Join rooms</li>
+<li>Public and private rooms</li>
+<li>Friend invitations</li>
+<li>Team / color switching</li>
+<li>Leave room handling</li>
+</ul>
+
+<p><strong>Networking Focus:</strong></p>
+<ul>
+<li>Deterministic move synchronization</li>
+<li>Server-authoritative validation</li>
+<li>Stable reconnection and disconnect handling</li>
+</ul>
+
+<h3>Blind Chess Mode (Experimental)</h3>
+<p><strong>Concept:</strong></p>
+<p>
+Blind Chess challenges players to rely on memory, prediction, and strategic awareness rather than full board visibility.
+</p>
+
+<p><strong>Visibility Rule:</strong></p>
+<ul>
+<li>Only opponent pieces within legal moves are visible</li>
+<li>All other opponent pieces remain hidden</li>
+</ul>
+
+<p><strong>Design Intent:</strong></p>
+<ul>
+<li>Introduce a unique chess variant</li>
+<li>Increase cognitive challenge</li>
+<li>Demonstrate flexible rule-based logic</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 6. CONTROLS -->
+<section id="controls">
+<h2>5. Player Interaction & Controls</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Piece Interaction</h3>
+<ul>
+<li>Tap / click to select a piece</li>
+<li>Legal moves highlighted</li>
+<li>Illegal moves prevented via rule validation</li>
+</ul>
+
+<h3>Input Design</h3>
+<ul>
+<li>Optimized for mouse and touch input</li>
+<li>Clear visual feedback for selection and movement</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 7. CAMERA -->
+<section id="camera">
+<h2>6. Camera System</h2>
+<div class="section-container">
+<div class="section-text">
+<ul>
+<li>Free orbit camera</li>
+<li>Cinematic transitions for turn switching</li>
+<li>Dynamic focus during check and checkmate</li>
+<li>Mobile-safe camera constraints</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 8. MULTIPLAYER COMMUNICATION -->
+<section id="communication">
+<h2>7. Multiplayer Communication</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Voice Chat</h3>
+<ul>
+<li>Photon Voice integration</li>
+<li>Push-to-talk system</li>
+<li>Active during multiplayer matches</li>
+</ul>
+
+<h3>Text Chat</h3>
+<ul>
+<li>Photon Chat integration</li>
+<li>Used in lobbies and friend interactions</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 9. BACKEND -->
+<section id="backend">
+<h2>8. Backend & Online Services (PlayFab)</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Authentication</h3>
+<ul>
+<li>Guest login</li>
+<li>Email-based login</li>
+<li>Persistent player identity</li>
+</ul>
+
+<h3>Economy</h3>
+<ul>
+<li>Gold – earnable currency</li>
+<li>Diamonds – premium currency</li>
+</ul>
+
+<h3>Inventory System</h3>
+<ul>
+<li>Board skins</li>
+<li>Chess piece skins</li>
+<li>Cosmetic-only customization</li>
+</ul>
+
+<h3>Friends System</h3>
+<ul>
+<li>Add / remove friends</li>
+<li>Online presence tracking</li>
+<li>Direct friend match invitations</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 10. MONETIZATION -->
+<section id="monetization">
+<h2>9. Monetization Strategy</h2>
+<div class="section-container">
+<div class="section-text">
+<ul>
+<li>Cosmetic purchases</li>
+<li>Optional ads</li>
+<li>Premium cosmetic unlocks</li>
+<li>No gameplay advantages</li>
+<li>Competitive fairness preserved</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 11. VISUALS -->
+<section id="visuals">
+<h2>10. Visual & Art Direction</h2>
+<div class="section-container">
+<div class="section-text">
+<ul>
+<li>Realistic materials and lighting</li>
+<li>Premium board-game presentation</li>
+<li>Custom 3D chess pieces and boards</li>
+<li>Optimized meshes and textures</li>
+<li>Smooth movement and capture animations</li>
+</ul>
+</div>
+</div>
+</section>
+
+
+
+<!-- 13. PERFORMANCE -->
+<section id="performance">
+<h2>11. Performance Targets</h2>
+<div class="section-container">
+<div class="section-text">
+<ul>
+<li>Optimized for low-end mobile devices</li>
+<li>Minimal draw calls</li>
+<li>Efficient network messaging</li>
+<li>Lightweight UI and animations</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 14. UI UX -->
+<section id="ui">
+<h2>12. User Interface & UX</h2>
+<div class="section-container">
+<div class="section-text">
+
+<h3>Key Screens</h3>
+<ul>
+<li>Main Menu</li>
+<li>Multiplayer Lobby</li>
+<li>Friends List</li>
+<li>Shop</li>
+<li>In-game HUD</li>
+<li>End-game Summary</li>
+</ul>
+
+<h3>UX Goals</h3>
+<ul>
+<li>Minimal distractions during gameplay</li>
+<li>Clear turn and state feedback</li>
+<li>Consistent visual hierarchy</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<!-- 16. CONCLUSION -->
+<section id="summary">
+<h2>13. Conclusion</h2>
+<div class="section-container">
+<div class="section-text">
+<p>
+Mr. Chess 3D  combines classic gameplay,
+modern multiplayer infrastructure, and innovative rule-based experimentation.
+</p>
+</div>
+</div>
+</section>
+
+<div class="section-nav" id="sectionNav"></div>
+<div id="backToTop">↑ Top</div>
+
+<script src="projectJava.js"></script>
+
+</div>
+</div>
+</body>
+</html>
+
